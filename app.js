@@ -1,52 +1,26 @@
 async function fetchAndDisplayLangs() {
   try {
-    // Step 1: Fetch the events JSON
-    const eventsResponse = await fetch("/events", {
-      method: "GET",
-      mode: "cors", // Enable CORS
-      headers: {
-        Accept: "application/json", // Set headers if needed
-      },
-    });
-
-    if (!eventsResponse.ok) {
-      throw new Error(`HTTP error! status: ${eventsResponse.status}`);
-    }
-
-    const eventsData = await eventsResponse.json();
-    // Debugging the response structure
-    console.log("Events API Response:", eventsData);
-
-    // Access the CID from the first event in the 'events' array
-    const cid = eventsData.events[0].cid;
-    if (!cid) throw new Error("CID not found");
-    console.log("CID found:", cid);
-
-    // Step 2: Fetch the zip file using the CID
-    const blobResponse = await fetch(`/blob?cid=${cid}`, {
-      method: "GET",
-      mode: "cors", // Enable CORS
-      headers: {
-        Accept: "application/zip", // Set headers if needed
-      },
-    });
-
-    if (!blobResponse.ok) {
-      console.log("Blob response:", blobResponse);
-      throw new Error(`HTTP error! status: ${blobResponse.status}`);
-    }
-
-    const blob = await blobResponse.blob();
-
-    // Step 3: Unzip the file using JSZip
-    const zip = await JSZip.loadAsync(blob);
-
     // Fetch langs.json
-    const langsJson = await zip.file("langs.json").async("string");
+    const langsJson = `[
+    "Castle on a Cliff",
+    "Burg an der Klippe",
+    "Castillo en acantilado",
+    "Château sur une falaise",
+    "Castello sul dirupo",
+    "崖に立つ城",
+    "절벽 위의 성",
+    "Zamek na urwisku",
+    "Castelo no Penhasco",
+    "Замок на утесе",
+    "Slott på klippa",
+    "Uçurumdaki Kale",
+    "Замок на кручі",
+    "高崖城堡"
+]`;
     const langsArray = JSON.parse(langsJson);
 
     // Fetch meta.json
-    const metaJson = await zip.file("meta.json").async("string");
+    const metaJson = `{"state":{"glade":"Autumn"},"version":1}`;
     const metaData = JSON.parse(metaJson);
 
     // Set background based on the state.glade value
