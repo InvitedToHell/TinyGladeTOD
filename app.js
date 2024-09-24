@@ -1,4 +1,4 @@
-const BLOB_API_URL = "http://ryeland.pouncelight.games/v1/blob/";
+const BLOB_API_URL = "https://ryeland.pouncelight.games/v1/blob/";
 
 async function fetchAndDisplayLangs() {
   try {
