@@ -3,15 +3,47 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Langs.json Display</title>
-        <link rel="stylesheet" href="style.css">
+        <title>Language Selector</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        #langs-output {
+            font-size: 24px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        #language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
     </head>
     <body>
-        <h1>Languages Data</h1>
-        <div id="langs-output">Loading...</div>
+
+        <!-- Dropdown to select language -->
+        <div id="language-selector">
+            <label for="lang-select">Choose Language:</label>
+            <select id="lang-select">
+                <!-- Options will be dynamically added here -->
+            </select>
+        </div>
+
+        <!-- Element to display the text -->
+        <div id="langs-output">
+            <!-- The English text will be shown here by default -->
+        </div>
 
         <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
         <script src="app.js"></script>
+
     </body>
 </html>

@@ -2,6 +2,9 @@ body {
   font-family: Arial, sans-serif;
   padding: 20px;
   background-color: #f4f4f4;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 h1 {
@@ -14,4 +17,12 @@ h1 {
   padding: 15px;
   margin-top: 20px;
   white-space: pre-wrap; /* Preserve formatting for JSON */
+}
+#langs-output {
+  font-size: 24px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  border-radius: 5px;
 }
