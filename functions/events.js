@@ -1,3 +1,3 @@
 export function onRequest(context) {
-  return new Response("Hello, world!");
+  return fetch("https://ryeland.pouncelight.games/v1/events");
 }
