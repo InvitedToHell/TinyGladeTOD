@@ -1,10 +1,9 @@
-const EVENTS_API_URL = "https://ryeland.pouncelight.games/v1/events";
 const BLOB_API_URL = "http://ryeland.pouncelight.games/v1/blob/";
 
 async function fetchAndDisplayLangs() {
   try {
     // Step 1: Fetch the events JSON
-    const eventsResponse = await fetch(EVENTS_API_URL, {
+    const eventsResponse = await fetch("/events", {
       method: "GET",
       mode: "cors", // Enable CORS
       headers: {
