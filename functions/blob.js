@@ -1,6 +1,10 @@
 export async function onRequest(context) {
   try {
-    const { cid } = context.request.url.searchParams;
+    const url = new URL(context.request.url);
+
+    // Get the URLSearchParams
+    const params = url.searchParams;
+    const cid = params.get("cid");
     const resp = await fetch(
       `https://ryeland.pouncelight.games/v1/blob/${cid}`
     );
