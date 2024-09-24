@@ -1,6 +1,5 @@
-const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-const EVENTS_API_URL = `${proxyUrl}https://ryeland.pouncelight.games/v1/events`;
-const BLOB_API_URL = `${proxyUrl}http://ryeland.pouncelight.games/v1/blob/`;
+const EVENTS_API_URL = "https://ryeland.pouncelight.games/v1/events";
+const BLOB_API_URL = "http://ryeland.pouncelight.games/v1/blob/";
 
 async function fetchAndDisplayLangs() {
   try {
