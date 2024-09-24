@@ -1,5 +1,3 @@
-const BLOB_API_URL = "https://ryeland.pouncelight.games/v1/blob/";
-
 async function fetchAndDisplayLangs() {
   try {
     // Step 1: Fetch the events JSON
@@ -25,7 +23,7 @@ async function fetchAndDisplayLangs() {
     console.log("CID found:", cid);
 
     // Step 2: Fetch the zip file using the CID
-    const blobResponse = await fetch(`${BLOB_API_URL}${cid}`, {
+    const blobResponse = await fetch(`/blob?cid=${cid}`, {
       method: "GET",
       mode: "cors", // Enable CORS
       headers: {
