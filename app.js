@@ -32,6 +32,7 @@ async function fetchAndDisplayLangs() {
     });
 
     if (!blobResponse.ok) {
+      console.log("Blob response:", blobResponse);
       throw new Error(`HTTP error! status: ${blobResponse.status}`);
     }
 
