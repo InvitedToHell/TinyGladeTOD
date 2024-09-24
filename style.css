@@ -4,7 +4,6 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: blur(10px);
   overflow: hidden;
 }
 
@@ -18,6 +17,7 @@ html {
   font-size: xx-large;
   font-family: Patrick Hand SC;
   color: white;
+  text-shadow: 0 2px 3px black, 0 0 0.25em rgba(0, 0, 0, 0.5);
 }
 
 #language-selector {
