@@ -1,28 +1,52 @@
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Full height for body */
+  overflow: hidden; /* Hide overflow */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: relative;
+}
+
+/* Background Image with Blurred Effect */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("assets/background.jpg"); /* Change to your background image */
+  background-size: cover; /* Cover the entire area */
+  filter: blur(8px); /* Blur effect */
+  z-index: 1; /* Behind content */
+}
+
+/* Container for centered content */
+.content {
+  position: relative; /* Create a stacking context */
+  z-index: 2; /* Above background */
+  background: rgba(255, 255, 255, 0.8); /* White background with opacity */
   padding: 20px;
-  background-color: #f4f4f4;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  text-align: center; /* Center text */
 }
 
-h1 {
-  color: #333;
-}
-
-#langs-output {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-top: 20px;
-  white-space: pre-wrap; /* Preserve formatting for JSON */
-}
 #langs-output {
   font-size: 24px;
   margin-top: 20px;
   border: 1px solid #ccc;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  background-color: #fff; /* Optional: you can remove this since content has its own background */
   border-radius: 5px;
+}
+
+#language-selector {
+  margin-top: 20px; /* Add some space above the selector */
+}
+
+select {
+  padding: 5px; /* Padding for dropdown */
 }
