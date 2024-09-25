@@ -10,25 +10,29 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <p id="progress-text">0%</p>
+        </div>
+
         <!-- Background Image -->
         <div class="background"></div>
 
         <!-- Content Container -->
-        <div class="topright">
+        <div class="content">
             <div id="language-selector">
                 <label for="lang-select">Choose Language:</label>
                 <select id="lang-select">
                     <!-- Options will be dynamically added here -->
                 </select>
             </div>
-        </div>
-        <div class="middle">
-            <div class="content">
 
-                <!-- Element to display the text -->
-                <div id="langs-output">
-                    <!-- The English text will be shown here by default -->
-                </div>
+            <!-- Element to display the text -->
+            <div id="langs-output">
+                <!-- The English text will be shown here by default -->
             </div>
         </div>
 
