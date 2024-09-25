@@ -2,10 +2,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const loadingScreen = document.getElementById("loading-screen");
   const progressBar = document.getElementById("progress-bar");
   const progressText = document.getElementById("progress-text");
+  const countdownElement = document.createElement("div");
+  countdownElement.id = "countdown-timer";
+  document.querySelector(".content").appendChild(countdownElement);
 
   function updateProgress(percentage) {
     progressBar.style.width = percentage + "%";
     progressText.textContent = percentage + "%";
+  }
+
+  function startCountdown(endTimestamp) {
+    function updateCountdown() {
+      const now = Math.floor(Date.now() / 1000);
+      const secondsLeft = endTimestamp - now;
+
+      if (secondsLeft <= 0) {
+        countdownElement.textContent = "Event has ended.";
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      const hours = Math.floor(secondsLeft / 3600);
+      const minutes = Math.floor((secondsLeft % 3600) / 60);
+      const seconds = secondsLeft % 60;
+
+      countdownElement.textContent = `Time left: ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
   }
 
   async function fetchAndDisplayLangs() {
@@ -27,10 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // Debugging the response structure
       console.log("Events API Response:", eventsData);
 
-      // Access the CID from the first event in the 'events' array
-      const cid = eventsData.events[0].cid;
+      // Access the CID and end timestamp from the first event in the 'events' array
+      const { cid, end } = eventsData.events[0];
       if (!cid) throw new Error("CID not found");
       console.log("CID found:", cid);
+      console.log("End timestamp found:", end);
+
+      // Start the countdown timer
+      startCountdown(end);
 
       // Step 2: Fetch the zip file using the CID
       const blobResponse = await fetch(`/blob?cid=${cid}`, {
