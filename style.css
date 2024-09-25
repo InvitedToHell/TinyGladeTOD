@@ -21,6 +21,10 @@ html {
   width: 80%; /* Set a fixed width */
   max-width: 600px; /* Optional: Set a maximum width */
   margin: 0 auto; /* Center the box horizontally */
+  height: 50%;
+  max-height: 150px;
+  align-content: center;
+}
 }
 
 #language-selector {
