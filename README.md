@@ -1,8 +1,6 @@
 # <div align="center">Tiny Glade TOD Viewer</div>
 
 
----
-
 Tiny Glade TOD Viewer let's you access the current "Theme of the day" without the need to open the game.
 
 ## ✨ Features
