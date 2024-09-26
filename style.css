@@ -54,6 +54,7 @@ html {
   font-family: Noto Sans;
   color: white;
 }
+
 .topleft {
   display: flex;
   align-items: center;
@@ -68,6 +69,7 @@ html {
   color: white;
   text-decoration: none;
 }
+
 /* patrick-hand-sc-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
