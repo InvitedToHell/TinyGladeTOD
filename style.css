@@ -72,6 +72,7 @@ html {
 .topleft a {
   text-decoration: none;
   margin: 10px;
+  color: white;
 }
 /* patrick-hand-sc-regular - latin */
 @font-face {
