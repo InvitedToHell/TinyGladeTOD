@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Catalogue</title>
+        <link rel="stylesheet" href="style.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <p class="heading">Theme Of The Day Collection</p>
+            </div>
+            <div class="breadcrumb">
+                <a class="breadcrumb
+                " href="../">home</a>
+            </div>
+            <div class="language-dropdown">
+                <label for="language-select">Language:</label>
+                <select id="language-select">
+                    <option value="0">English</option>
+                    <option value="1">German</option>
+                    <option value="2">Spanish</option>
+                    <option value="3">French</option>
+                    <option value="4">Italian</option>
+                    <option value="5">Japanese</option>
+                    <option value="6">Korean</option>
+                    <option value="7">Polish</option>
+                    <option value="8">Portuguese</option>
+                    <option value="9">Russian</option>
+                    <option value="10">Swedish</option>
+                    <option value="11">Turkish</option>
+                    <option value="12">Ukrainian</option>
+                    <option value="13">Chinese</option>
+                </select>
+            </div>
+        </nav>
+        <div class="catalogue" id="catalogue">
+            <!-- Items will be inserted here by JavaScript -->
+        </div>
+
+        <script>
+            async function fetchEvents() {
+                try {
+                    const response = await fetch('https://tod.bolli.tech/v1/events');
+                    const data = await response.json();
+                    const catalogue = document.getElementById('catalogue');
+
+                    for (const event of data.events) {
+                        const langResponse = await fetch(`https://tod.bolli.tech/v1/event/${event.cid}/langs.json`);
+                        const langData = await langResponse.json();
+
+                        const item = document.createElement('div');
+                        item.className = 'item';
+
+                        const img = document.createElement('img');
+                        img.src = `https://tod.bolli.tech/v1/event/${event.cid}/screenshot.jpg`;
+                        img.alt = 'Thumbnail';
+
+                        const info = document.createElement('div');
+                        info.className = 'info';
+
+                        const title = document.createElement('h2');
+                        title.textContent = langData[0]; // Default to English
+
+                        const published = document.createElement('p');
+                        published.textContent = `${new Date(event.start * 1000).toLocaleDateString()}`;
+
+                        const downloadButton = document.createElement('button');
+                        downloadButton.textContent = 'Download';
+                        downloadButton.className = 'download-button';
+                        downloadButton.addEventListener('click', () => downloadAsZip(event.cid));
+
+                        info.appendChild(title);
+                        info.appendChild(published);
+                        item.appendChild(img);
+                        item.appendChild(info);
+                        item.appendChild(downloadButton);
+                        catalogue.appendChild(item);
+
+                        // Store the language data in the item for later use
+                        item.dataset.langData = JSON.stringify(langData);
+                    }
+                } catch (error) {
+                    console.error('Error fetching events:', error);
+                }
+            }
+
+            async function downloadAsZip(cid) {
+                try {
+                    const response = await fetch(`https://tod.bolli.tech/v1/blob/${cid}`);
+                    const blob = await response.blob();
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = `${cid}.zip`; // Change the file extension to .zip
+                    link.click();
+                } catch (error) {
+                    console.error('Error downloading file:', error);
+                }
+            }
+
+            function updateLanguage() {
+                const languageSelect = document.getElementById('language-select');
+                const selectedLanguageIndex = languageSelect.value;
+                const items = document.querySelectorAll('.item');
+
+                items.forEach(item => {
+                    const langData = JSON.parse(item.dataset.langData);
+                    const title = item.querySelector('h2');
+                    title.textContent = langData[selectedLanguageIndex];
+                });
+            }
+
+            document.getElementById('language-select').addEventListener('change', updateLanguage);
+
+            fetchEvents();
+        </script>
+    </body>
+</html>

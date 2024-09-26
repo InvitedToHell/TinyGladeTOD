@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  padding-top: 70px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  border-radius: 0 0 10px 10px;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 2px 3px black, 0 0 0.25em rgba(0, 0, 0, 0.5);
+}
+
+.breadcrumb {
+  font-family: "Patrick Hand SC";
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.heading {
+  font-family: "Patrick Hand SC";
+}
+
+.catalogue {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.item img {
+  width: 150px;
+  height: 150px;
+  border-radius: 12px;
+  margin-right: 20px;
+}
+
+.item .info {
+  flex-grow: 1;
+}
+
+.item .info p {
+  font-size: 16px;
+  color: #777;
+}
+
+.download-button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background-color: #3b3b3b;
+}
+@font-face {
+  font-display: swap;
+  font-family: "Patrick Hand SC";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/patrick-hand-sc-v15-latin-regular.woff2") format("woff2");
+}
+
+/* noto-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/noto-sans-v36-latin-regular.woff2") format("woff2");
+}
+
+@media (max-width: 600px) {
+  .catalogue {
+    grid-template-columns: 1fr;
+  }
+
+  .item img {
+    width: 100px;
+    height: 100px;
+  }
+}

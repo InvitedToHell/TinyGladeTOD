@@ -25,7 +25,6 @@ html {
   max-height: 150px;
   align-content: center;
 }
-}
 
 #language-selector {
   margin: 10px;
@@ -55,7 +54,20 @@ html {
   font-family: Noto Sans;
   color: white;
 }
-
+.topleft {
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(100px);
+  border-bottom-left-radius: 10px;
+  font-family: Noto Sans;
+  color: white;
+  text-decoration: none;
+}
 /* patrick-hand-sc-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -104,7 +116,6 @@ html {
   margin-top: 10px;
   font-size: 1.2em;
   font-family: "Patrick Hand SC", cursive; /* Change font to Patrick Hand SC */
-  
 }
 
 #countdown-timer {
