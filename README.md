@@ -12,8 +12,6 @@ Tiny Glade TOD Viewer let's you access the current "Theme of the day" without th
 - Tells you when the next theme will be available
 - Shows the season in which you will build the theme as background
 
---- 
-
 ## ⌨️ Setup for development
 
 ### Styling 
