@@ -1,7 +1,7 @@
 # <div align="center">Tiny Glade TOD Viewer</div>
 
 
-Tiny Glade TOD Viewer let's you access the current "Theme of the day" without the need to open the game.
+Tiny Glade TOD Viewer let's you access the current "Theme of the day" without the need to open the game. Also it provides a collection of all past TOD's!
 
 ## ✨ Features
 
@@ -9,6 +9,16 @@ Tiny Glade TOD Viewer let's you access the current "Theme of the day" without th
 - Let's you change the language (as in the game)
 - Tells you when the next theme will be available
 - Shows the season in which you will build the theme as background
+- Creates a collection of every past TOD
+- Let's you download every past TOD's starting map
+
+## 🛜 Using the TOD Collection
+
+1. Create a random new glade inside of the game and close it
+2. Download a TOD's glade
+3. Open your saves folder (You can find your save files in ``C:\Users\YOUR_USER_NAME\Saved Games\Tiny Glade\Steam\YOUR_STEAM_ID\saves``. On Linux that's ``~/.local/share/Tiny Glade/Steam/YOUR_STEAM_ID/saves``
+4. Open the previously downloaded zip-file and copy it's contents to the newest created folder inside of the ``saves`` folder
+5. Start the game and look out for a new glade when scrolling through your saved glades 😊
 
 ## ⌨️ Setup for development
 
