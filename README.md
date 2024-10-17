@@ -14,10 +14,13 @@ Tiny Glade TOD Viewer let's you access the current "Theme of the day" without th
 
 ## 🛜 Using the TOD Collection
 
+> :warning: **Always double-check before continuing! These steps can lead to data-loss!** 
+
+
 1. Create a random new glade inside of the game
 2. Download a TOD's glade
 3. Open your saves folder (You can find your save files in ``C:\Users\YOUR_USER_NAME\Saved Games\Tiny Glade\Steam\YOUR_STEAM_ID\saves``. On Linux that's ``~/.local/share/Tiny Glade/Steam/YOUR_STEAM_ID/saves``
-4. Open the previously downloaded zip-file and copy it's contents to the newest created folder inside of the ``saves`` folder
+4. Open the previously downloaded zip-file and copy its contents to the newest created folder inside of the ``saves`` folder
 5. Go back to your game and look out for a new glade when scrolling through your saved glades 😊
 
 ## ⌨️ Setup for development
