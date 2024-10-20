@@ -45,7 +45,9 @@ if [[ ! -f events ]]; then
   # no events file found, creating a new one...
   echo '{"events":[]}' > events
 fi
-new_events=$(jq -c '.events += $inputs[0].events | .events |= unique_by(.cid) | .events|=sort_by(.start)' --slurpfile inputs events <<< "$response")
+
+new_events=$(jq -c --argjson new_obj "$response" '.events += $new_obj.events | .events |= (unique_by(.cid) | sort_by(.start))' events)
+
 RESULT=$?
 if [[ $RESULT -eq 0 ]]; then
   echo "$new_events" > events
